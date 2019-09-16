@@ -1,9 +1,12 @@
 import React, { Fragment, useState } from "react";
+import debounce from "../services/debounce";
 
 function Search({ handleSearch }) {
   const [query, setQuery] = useState("");
   function handleChange(event) {
     setQuery(event.target.value);
+    //debounce(handleSearch(query), 2500);
+    //handleSearch(query);
   }
 
   function onSearch() {
@@ -11,8 +14,8 @@ function Search({ handleSearch }) {
   }
   return (
     <Fragment>
-      <div className="columns">
-        <div className="column is-four-fifths">
+      <div className="columns is-gapless is-centered">
+        <div className="column is-three-fourths">
           <input
             className="input"
             placeholder="City name"
@@ -21,7 +24,7 @@ function Search({ handleSearch }) {
             onChange={e => handleChange(e)}
           />
         </div>
-        <div className="column">
+        <div className="column is-one-quarter">
           <button className="button" onClick={onSearch}>
             <span className="icon has-text-info">
               <i className="fas fa-search" />

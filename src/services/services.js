@@ -41,3 +41,20 @@ export function getUrbanAreaImages(id) {
       console.log("ERROR: ", error);
     });
 }
+
+export function getUrbanAreaDetails(id) {
+  return fetch(
+    `https://api.teleport.org/api/urban_areas/teleport:${id}/?embed=ua:details&embed=ua:images&embed=ua:scores`
+  )
+    .then(function(response) {
+      if (!response.ok) return Promise.reject(response);
+      return response.json();
+    })
+    .then(res => {
+      console.log("response", res);
+      return res;
+    })
+    .catch(function(error) {
+      console.log("ERROR: ", error);
+    });
+}
