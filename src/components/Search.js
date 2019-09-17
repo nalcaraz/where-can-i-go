@@ -17,7 +17,7 @@ function Search({ handleSearch }) {
       <div className="columns is-gapless is-centered">
         <div className="column is-three-fourths">
           <input
-            className="input"
+            className="input is-large"
             placeholder="City name"
             type="text"
             name="query"
@@ -25,7 +25,7 @@ function Search({ handleSearch }) {
           />
         </div>
         <div className="column is-one-quarter">
-          <button className="button" onClick={onSearch}>
+          <button className="button is-large" onClick={onSearch}>
             <span className="icon has-text-info">
               <i className="fas fa-search" />
             </span>

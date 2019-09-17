@@ -40,7 +40,10 @@ function Home({ history }) {
 
   return (
     <Layout>
-      <h2 className="is-size-4">Where can I go?</h2>
+      <h2 className="is-size-2">
+        <i className="fas fa-city" />
+        Where can I go?
+      </h2>
       <Search handleSearch={handleSearch} />
       {cities &&
         cities.length > 0 &&
