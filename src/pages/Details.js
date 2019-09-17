@@ -5,7 +5,7 @@ import { getUrbanAreaDetails } from "../services/services";
 
 function Details({ match }) {
   const { id } = match.params;
-  console.log(match);
+  //console.log(match);
   const [details, setDetails] = useState(null);
   useEffect(() => {
     // if (details) {
@@ -13,7 +13,7 @@ function Details({ match }) {
     //  }
   }, [id]);
 
-  console.log("details", details);
+  //console.log("details", details);
   return <Layout>{details && <CityDetails info={details} />}</Layout>;
 }
 

@@ -14,13 +14,13 @@ function Home({ history }) {
     if (tempCities) {
       //   const ua = city._embedded["city:urban_area"];
       var filteredCities = tempCities.filter(c => {
-        console.log("c", c);
+        // console.log("c", c);
         return (
           c._embedded["city:item"]._embedded &&
           c._embedded["city:item"]._embedded["city:urban_area"]
         );
       });
-      console.log(filteredCities);
+      //console.log(filteredCities);
       setCities(filteredCities);
       // setUrbanArea(ua);
     }
@@ -32,16 +32,16 @@ function Home({ history }) {
     });
   }
 
-  console.log("cities", cities);
+  //console.log("cities", cities);
   function handleSelectCity(id) {
-    console.log("id", id);
+    // console.log("id", id);
     history.push(`details/${id}`);
   }
 
   return (
     <Layout>
       <h2 className="is-size-2">
-        <i className="fas fa-city" />
+        <i className="fas fa-city vertical-padding-10" />
         Where can I go?
       </h2>
       <Search handleSearch={handleSearch} />

@@ -14,7 +14,7 @@ function Search({ handleSearch }) {
   }
   return (
     <Fragment>
-      <div className="columns is-gapless is-centered">
+      <div className="columns is-mobile is-gapless is-centered">
         <div className="column is-three-fourths">
           <input
             className="input is-large"

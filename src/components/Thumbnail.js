@@ -23,10 +23,9 @@ function Thumbnail({ city, handleClick }) {
   function onClick() {
     handleClick(urbanArea.ua_id);
   }
-  console.log("urbanArea", urbanArea);
   return (
     urbanArea && (
-      <div className="card" onClick={onClick}>
+      <div className="card thumbnail" onClick={onClick}>
         <header className="card-header">
           <figure className="image is-64x64">
             {images && images.length > 0 ? (

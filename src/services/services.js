@@ -8,7 +8,6 @@ export function getCityByName(name) {
       return response.json();
     })
     .then(res => {
-      console.log("response", res);
       return res;
     })
     .catch(function(error) {
@@ -51,7 +50,6 @@ export function getUrbanAreaDetails(id) {
       return response.json();
     })
     .then(res => {
-      console.log("response", res);
       return res;
     })
     .catch(function(error) {

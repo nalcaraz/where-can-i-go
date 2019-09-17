@@ -1,5 +1,25 @@
 .App {
-  font-family: "Roboto", sans-serif;
   font-family: "Bangers", cursive;
   text-align: center;
+}
+
+.padding-10 {
+  padding: 10px;
+}
+.vertical-padding-10 {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.card.thumbnail {
+  animation: 3s linear 1s slidein;
+  cursor: pointer;
+}
+.card.thumbnail:hover {
+  background-color: #fff9c4;
+}
+
+.card.thumbnail img {
+  height: 100%;
+  object-fit: cover;
 }
