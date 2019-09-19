@@ -1,11 +1,20 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
+import Map from "./Map";
 
 function CityDetails({ info }) {
+  const [map, setMap] = useState(null)
+const [position, setPosition] = useState(null)
   const {
     ["ua:details"]: details,
     ["ua:images"]: images,
     ["ua:scores"]: scores
   } = info._embedded;
+
+//   const mapLocation = [
+//  latitude: info.bounding_box.latlon.east,
+//     info.bounding_box.latlon.north
+//   ];
+  
 
   return (
     <Fragment>
@@ -14,6 +23,7 @@ function CityDetails({ info }) {
         <img alt={info.name} src={images.photos[0].image.web} />
       </figure>
       <p dangerouslySetInnerHTML={{ __html: scores.summary }} />
+      <Map latitude={info.bounding_box.latlon.east} longitude={ info.bounding_box.latlon.north} ></Map>
     </Fragment>
   );
 }
