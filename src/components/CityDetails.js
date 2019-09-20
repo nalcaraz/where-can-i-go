@@ -11,13 +11,13 @@ function CityDetails({ info }) {
   } = info._embedded;
 
 
-    const { east, west, north, south } = info.bounding_box.latlon;
-    const lng = (east + west) / 2;
-    const lat = (north + south) / 2;
-    setPosition({lat, lng})
+  const { east, west, north, south } = info.bounding_box.latlon;
+  const lng = (east + west) / 2;
+  const lat = (north + south) / 2;
+  setPosition({ lat, lng })
   const StyledCityName = styled.h1`
-text-align: center;
-font-size: 5rem;`
+      text-align: center;
+      font-size: 5rem;`
   return (
     <Fragment>
       <StyledCityName className="bangers-text">{info.name}</StyledCityName>
@@ -32,9 +32,9 @@ font-size: 5rem;`
 
       <div className="box">
         <h1 className="is-size-3 bangers-text">Where even is {info.name} ?</h1>
-        <Map longitude={position.lng} latitude={position.lat}
+        {position && <Map longitude={position.lng} latitude={position.lat}
           style={{ width: '100%', height: '350px' }}
-        ></Map>
+        ></Map>}
 
       </div>
     </Fragment>
