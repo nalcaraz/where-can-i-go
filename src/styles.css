@@ -1,6 +1,6 @@
-.App {
+.bangers-text {
   font-family: "Bangers", cursive;
-  text-align: center;
+ 
 }
 
 .padding-10 {
@@ -22,4 +22,8 @@
 .card.thumbnail img {
   height: 100%;
   object-fit: cover;
+}
+
+.center{
+  text-align: center;
 }

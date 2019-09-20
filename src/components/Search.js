@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import debounce from "../services/debounce";
 
-function Search({ handleSearch }) {
+function Search({ handleSearch, resetHasSearched }) {
   const [query, setQuery] = useState("");
   function handleChange(event) {
     setQuery(event.target.value);
@@ -12,6 +12,10 @@ function Search({ handleSearch }) {
   function onSearch() {
     return handleSearch(query);
   }
+  function onInputChange(e) {
+    handleChange(e);
+    resetHasSearched();
+  }
   return (
     <Fragment>
       <div className="columns is-mobile is-gapless is-centered">
@@ -21,7 +25,7 @@ function Search({ handleSearch }) {
             placeholder="City name"
             type="text"
             name="query"
-            onChange={e => handleChange(e)}
+            onChange={onInputChange}
           />
         </div>
         <div className="column is-one-quarter">
