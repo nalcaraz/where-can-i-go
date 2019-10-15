@@ -9,6 +9,8 @@ function Home({ history }) {
   const [tempCities, setTempCities] = useState([]);
   const [hasSearched, setHasSearched] = useState(false);
   const [cities, setCities] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     if (tempCities) {
       var filteredCities = tempCities.filter(c => {
@@ -22,9 +24,11 @@ function Home({ history }) {
   }, [tempCities]);
 
   function handleSearch(city) {
-    setHasSearched(true)
+    setHasSearched(true);
+    setIsLoading(true);
     getCityByName(city).then(res => {
       setTempCities(res._embedded["city:search-results"]);
+      setIsLoading(false);
     });
   }
   function handleSelectCity(id) {
@@ -42,6 +46,12 @@ function Home({ history }) {
         Where can I go?
       </h2>
       <Search handleSearch={handleSearch} resetHasSearched={resetHasSearched} />
+      {isLoading && (
+        <progress className="progress is-danger" max="100">
+          80%
+        </progress>
+      )}
+
       {cities &&
         cities.length > 0 &&
         cities.map((c, i) => (
@@ -51,8 +61,11 @@ function Home({ history }) {
             handleClick={id => handleSelectCity(id)}
           />
         ))}
-      {cities.length === 0 && hasSearched &&
-        <p className="bangers-text">Sorry, there are no cities for your search.</p>}
+      {cities.length === 0 && hasSearched && !isLoading && (
+        <p className="bangers-text">
+          Sorry, there are no cities for your search.
+        </p>
+      )}
     </Layout>
   );
 }
